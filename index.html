@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solayman Elmouden | Software Engineer</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --accent: #4cc9f0;
+            --text: #495057;
+            --bg: #ffffff;
+            --card-bg: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary);
+            color: white;
+            border-radius: 30px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background: var(--dark);
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(76, 201, 240, 0.1) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-img {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(-50%) translateX(0);
+            }
+            50% {
+                transform: translateY(-53%) translateX(10px);
+            }
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-img img {
+            width: 80%;
+            border-radius: 20px;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            background-color: var(--light);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 25px;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tech-name {
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .project-content p {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .project-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Project Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 50px 20px;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+            z-index: 10;
+        }
+
+        .modal-header {
+            padding: 30px;
+            background: var(--primary);
+            color: white;
+        }
+
+        .modal-header h3 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .project-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .stack-tag {
+            padding: 5px 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        /* Blog Section */
+        .blog {
+            background-color: var(--light);
+        }
+
+        .blog-slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-cards {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card {
+            flex: 0 0 calc(33.333% - 20px);
+            margin: 0 10px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-img img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-meta {
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .blog-btns {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .blog-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .blog-nav-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .blog-nav-btn:hover {
+            background: var(--secondary);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Media Queries */
+        @media (max-width: 1024px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-img, .about-text {
+                flex: 1 1 100%;
+            }
+
+            .hero-img {
+                width: 40%;
+                opacity: 0.7;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                right: 0;
+                top: 70px;
+                background: white;
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                padding: 20px 0;
+                transform: translateX(100%);
+                transition: transform 0.5s ease;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hero-img {
+                display: none;
+            }
+
+            .blog-card {
+                flex: 0 0 calc(100% - 20px);
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">solaCode</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#stack">Stack</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Hi, I'm <span>Solayman El mouden</span></h1>
+            <p>A passionate Software Engineer specializing in backend development with a strong foundation in problem-solving and system design.</p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
+        </div>
+        <img src="/api/placeholder/500/600" alt="Hero Image" class="hero-img">
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="profile.jpg" alt="Solayman Elmouden">
+                </div>
+                <div class="about-text">
+                    <h3>Software Engineer & Problem Solver</h3>
+                    <p>I'm Solayman El mouden, a dedicated software engineer student at 1337 School-UM6P and a backend professional student at the ALX program. My journey in technology is driven by my passion for creating robust, efficient solutions to complex problems.</p>
+                    <p>With a strong foundation in both theoretical computer science and practical development, I specialize in backend systems, algorithmic thinking, and collaborative development. I believe in writing clean, maintainable code that solves real-world problems effectively.</p>
+                    <p>My approach combines technical expertise with creative problem-solving, allowing me to tackle challenges from multiple angles. I'm constantly learning and adapting to new technologies, and I'm particularly interested in how AI can enhance software development processes.</p>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2>My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>Problem Solving</h3>
+                    <p>I approach complex problems methodically, breaking them down into manageable components. My analytical thinking allows me to develop efficient algorithms and implement optimal solutions.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-square-root-alt"></i>
+                    </div>
+                    <h3>Mathematical Thinking</h3>
+                    <p>Strong foundation in mathematics enables me to tackle algorithmic challenges, optimize performance, and implement complex logic in my projects with precision and efficiency.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>System Design</h3>
+                    <p>Skilled at designing scalable and maintainable system architectures. I can create well-structured backend systems that balance performance, security, and reliability.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Project Building</h3>
+                    <p>Experienced in taking projects from concept to completion. I follow best practices in software development lifecycle, ensuring quality at every stage of the process.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3>Collaborative Development</h3>
+                    <p>Effective at working in team environments with version control systems. I value clear communication and can adapt to various development methodologies.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Integration</h3>
+                    <p>Proficient at collaborating with AI tools to enhance productivity. I can leverage AI capabilities to automate processes and improve development workflows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-stack" id="stack">
+        <div class="container">
+            <h2>Technology Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-c tech-icon"></i>
+                    <div class="tech-name">C</div>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-cuttlefish tech-icon"></i>
+                    <div class="tech-name">C++</div>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-python tech-icon"></i>
+                    <div class="tech-name">Python</div>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-js tech-icon"></i>
+                    <div class="tech-name">JavaScript</div>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-php tech-icon"></i>
+                    <div class="tech-name">PHP</div>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-react tech-icon"></i>
+                    <div class="tech-name">React</div>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-node-js tech-icon"></i>
+                    <div class="tech-name">Next.js</div>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-cubes tech-icon"></i>
+                    <div class="tech-name">Django</div>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-server tech-icon"></i>
+                    <div class="tech-name">API</div>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-docker tech-icon"></i>
+                    <div class="tech-name">Docker</div>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-database tech-icon"></i>
+                    <div class="tech-name">SQL</div>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-git-alt tech-icon"></i>
+                    <div class="tech-name">Git</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/300" alt="Minishell Project">
+                    </div>
+                    <div class="project-content">
+                        <h3>Minishell</h3>
+                        <p>A custom shell implementation with core Unix functionality.</p>
+                        <div class="project-btns">
+                            <button class="btn btn-secondary" onclick="openModal('minishell')">See More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/300" alt="Fractol Project">
+                    </div>
+                    <div class="project-content">
+                        <h3>Fractol</h3>
+                        <p>Fractal visualization application with interactive features.</p>
+                        <div class="project-btns">
+                            <button class="btn btn-secondary" onclick="openModal('fractol')">See More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/300" alt="Cub3D Project">
+                    </div>
+                    <div class="project-content">
+                        <h3>Cub3D</h3>
+                        <p>3D game built using raycasting techniques.</p>
+                        <div class="project-btns">
+                            <button class="btn btn-secondary" onclick="openModal('cub3d')">See More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/300" alt="Inception Project">
+                    </div>
+                    <div class="project-content">
+                        <h3>Inception</h3>
+                        <p>Containerized infrastructure setup with Docker and Docker Compose.</p>
+                        <div class="project-btns">
+                            <button class="btn btn-secondary" onclick="openModal('inception')">See More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/300" alt="WebServer Project">
+                    </div>
+                    <div class="project-content">
+                        <h3>WebServer</h3>
+                        <p>Custom HTTP server implementation with modern features.</p>
+                        <div class="project-btns">
+                            <button class="btn btn-secondary" onclick="openModal('webserver')">See More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/300" alt="Video Downloader">
+                    </div>
+                    <div class="project-content">
+                        <h3>Video Downloader</h3>
+                        <p>Multi-platform video downloading application with format options.</p>
+                        <div class="project-btns">
+                            <button class="btn btn-secondary" onclick="openModal('videodownloader')">See More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modals -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <h3 id="modalTitle"></h3>
+                <div class="project-stack" id="modalStack"></div>
+            </div>
+            <div class="modal-body">
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <h2>Latest Blog Posts</h2>
+            <div class="blog-slider">
+                <div class="blog-cards">
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="/api/placeholder/400/300" alt="Blog Post 1">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">March 15, 2024</div>
+                            <h3>Understanding System Design Patterns</h3>
+                            <p>Exploring common system design patterns and their practical applications in modern software development.</p>
+                            <div class="blog-btns">
+                                <a href="#" class="btn btn-secondary">Read More</a>
+                                <div class="social-links">
+                                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="/api/placeholder/400/300" alt="Blog Post 2">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">March 10, 2024</div>
+                            <h3>AI in Software Development</h3>
+                            <p>How AI tools are revolutionizing the way we write, test, and maintain code in modern development.</p>
+                            <div class="blog-btns">
+                                <a href="#" class="btn btn-secondary">Read More</a>
+                                <div class="social-links">
+                                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="/api/placeholder/400/300" alt="Blog Post 3">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">March 5, 2024</div>
+                            <h3>Backend Performance Optimization</h3>
+                            <p>Essential techniques and strategies for optimizing backend systems for scale and performance.</p>
+                            <div class="blog-btns">
+                                <a href="#" class="btn btn-secondary">Read More</a>
+                                <div class="social-links">
+                                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-nav">
+                    <div class="blog-nav-btn" onclick="slideBlog('prev')"><i class="fas fa-chevron-left"></i></div>
+                    <div class="blog-nav-btn" onclick="slideBlog('next')"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>solayman.elmouden@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>Morocco</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>GitHub</h4>
+                            <p>github.com/solayman-elmouden</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Solayman El mouden</h3>
+                    <p>Software Engineer specializing in backend development and system design. Always eager to take on new challenges and create innovative solutions.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Latest Projects</h3>
+                    <ul class="footer-links">
+                        <li><a href="#projects">Minishell</a></li>
+                        <li><a href="#projects">Fractol</a></li>
+                        <li><a href="#projects">Cub3D</a></li>
+                        <li><a href="#projects">Inception</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Solayman El mouden. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Project Modal
+        const projectData = {
+            minishell: {
+                title: 'Minishell',
+                description: 'A custom shell implementation that replicates core functionalities of bash. Features include command execution, pipe handling, environment variables, and signal handling.',
+                stack: ['C', 'Unix', 'Shell Scripting']
+            },
+            fractol: {
+                title: 'Fractol',
+                description: 'An interactive fractal visualization program that renders various types of fractals with real-time user interaction and color manipulation.',
+                stack: ['C', 'Mathematics', 'Graphics Programming']
+            },
+            cub3d: {
+                title: 'Cub3D',
+                description: 'A 3D game engine built using raycasting techniques, inspired by Wolfenstein 3D. Features texture mapping, sprite rendering, and collision detection.',
+                stack: ['C', 'Mathematics', 'Graphics Programming']
+            },
+            inception: {
+                title: 'Inception',
+                description: 'A containerized infrastructure setup using Docker and Docker Compose. Implements a complete web stack with multiple services and automated deployment.',
+                stack: ['Docker', 'Docker Compose', 'System Administration']
+            },
+            webserver: {
+                title: 'WebServer',
+                description: 'A custom HTTP server implementation supporting modern web features including request handling, routing, and static file serving.',
+                stack: ['C++', 'Networking', 'HTTP Protocol']
+            },
+            videodownloader: {
+                title: 'Video Downloader',
+                description: 'A multi-platform application for downloading videos from various platforms with format selection and quality options.',
+                stack: ['Python', 'APIs', 'UI/UX']
+            }
+        };
+
+        function openModal(projectId) {
+            const modal = document.getElementById('projectModal');
+            const project = projectData[projectId];
+            
+            document.getElementById('modalTitle').textContent = project.title;
+            document.getElementById('modalDescription').textContent = project.description;
+            
+            const stackHtml = project.stack.map(tech => `<span class="stack-tag">${tech}</span>`).join('');
+            document.getElementById('modalStack').innerHTML = stackHtml;
+            
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').style.display = 'none';
+        }
+
+        // Blog Slider
+        let currentSlide = 0;
+        const blogCards = document.querySelector('.blog-cards');
+        const cardWidth = document.querySelector('.blog-card').offsetWidth + 20; // Including margin
+
+        function slideBlog(direction) {
+            const totalSlides = document.querySelectorAll('.blog-card').length;
+            
+            if (direction === 'next') {
+                currentSlide = (currentSlide + 1) % totalSlides;
+            } else {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            }
+            
+            blogCards.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
